@@ -4,10 +4,9 @@
 fnames='shui';
 load(fnames)
 
-X1=[Xtrain;Xtest];
-y1=[ytrain;ytest];
+
 for i=26:35
-    F=IRIV(X1,y1,10,5,'center');
+    F=IRIV(Xtrain,ytrain,10,5,'center');
 
     [RMSEP,RMSEF]=predict(Xtrain,ytrain,Xtest,ytest,F.SelectedVariables,10,5,'center')
 
