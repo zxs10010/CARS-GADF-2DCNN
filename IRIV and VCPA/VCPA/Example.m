@@ -3,8 +3,7 @@
 fnames='shui';
 load(fnames)
 
-X1=[Xtrain;Xtest];
-y1=[Ytrain;Ytest];
+
 A_max=10;
 fold=5;
 method='center';
@@ -35,8 +34,8 @@ BMS_Run=1000;
 
 % 50 replicate running
 tic;
-for i=26:35
-Result=VCPA(X1,y1,A_max,fold,method,BMS_Run,EDF_Run,Ratio_Better);
+for i=1:20
+Result=VCPA(Xtrain,Ytrain,A_max,fold,method,BMS_Run,EDF_Run,Ratio_Better);
 selected_variables=Result.Vsel;
 F=predict(Xtrain,Ytrain,Xtest,Ytest,selected_variables,A_max,fold,method);
 RMSEP(i)=F.RMSEP;
